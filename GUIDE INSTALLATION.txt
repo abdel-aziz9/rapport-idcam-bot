@@ -1,0 +1,136 @@
+================================================================
+  GUIDE INSTALLATION — BOT TELEGRAM RAPPORT IDCAM
+  Technicien : ABDOUL-AZIZ MOHAMADOU LAMINOU
+  ✅ Fonctionne 100% depuis votre téléphone
+================================================================
+
+FICHIERS DANS CE DOSSIER :
+  📄 bot.py                ← Script principal du bot
+  📄 requirements.txt      ← Bibliothèques nécessaires
+  📊 template_rapport.xlsx ← Votre fiche originale
+  📖 GUIDE_INSTALLATION.txt ← Ce guide
+
+================================================================
+  ÉTAPE 1 — CRÉER VOTRE BOT TELEGRAM (5 minutes)
+================================================================
+
+1. Ouvrir Telegram sur votre téléphone
+2. Chercher : @BotFather
+3. Cliquer "Démarrer" ou taper /start
+4. Taper : /newbot
+5. Donner un nom : "Rapport IDCAM"
+6. Donner un username : "rapport_idcam_bot" (doit finir par _bot)
+7. BotFather vous donne un TOKEN comme :
+      7123456789:AAHdqTcvCHhvGug5wwVPFkFJT61TZdpHjHo
+   → COPIEZ ce token, vous en aurez besoin !
+
+================================================================
+  ÉTAPE 2 — HÉBERGER LE BOT GRATUITEMENT SUR RENDER.COM
+================================================================
+
+(Pas besoin d'ordinateur allumé en permanence !)
+
+A. Créer un compte sur https://render.com
+   → S'inscrire avec votre email
+
+B. Créer un compte GitHub sur https://github.com
+   → S'inscrire avec votre email
+
+C. Sur GitHub :
+   → Cliquer "New repository"
+   → Nom : "rapport-idcam-bot"
+   → Cocher "Public"
+   → Cliquer "Create repository"
+   → Uploader les 3 fichiers : bot.py, requirements.txt, template_rapport.xlsx
+
+D. Sur Render.com :
+   → Cliquer "New +" → "Web Service"
+   → Connecter votre compte GitHub
+   → Sélectionner le repo "rapport-idcam-bot"
+   → Remplir :
+       Name     : rapport-idcam
+       Runtime  : Python 3
+       Build    : pip install -r requirements.txt
+       Start    : python bot.py
+   → Cliquer "Advanced" → "Add Environment Variable"
+       Key   : TOKEN_BOT
+       Value : (coller votre token de BotFather)
+   → Cliquer "Create Web Service"
+
+✅ Votre bot tourne maintenant 24h/24 gratuitement !
+
+================================================================
+  ÉTAPE 3 — CONFIGURER LE TOKEN DANS LE SCRIPT
+================================================================
+
+Dans bot.py, ligne 24, remplacer :
+  TOKEN_BOT = "VOTRE_TOKEN_ICI"
+par votre vrai token :
+  TOKEN_BOT = "7123456789:AAHdqTcvCHhvGug5wwVPFkFJT61TZdpHjHo"
+
+Si vous utilisez Render.com (recommandé), le token est
+automatiquement lu depuis la variable d'environnement.
+Modifier la ligne 24 ainsi :
+  TOKEN_BOT = os.environ.get("TOKEN_BOT", "VOTRE_TOKEN_ICI")
+
+================================================================
+  ÉTAPE 4 — UTILISER LE BOT
+================================================================
+
+1. Ouvrir Telegram
+2. Chercher votre bot par son username (ex: @rapport_idcam_bot)
+3. Cliquer "Démarrer"
+
+📋 COMMANDES DISPONIBLES :
+  /start        → Menu principal avec boutons
+  /rapport      → Générer rapport d'AUJOURD'HUI
+  /rapport_hier → Générer rapport d'HIER
+  /auto         → Activer envoi automatique à 15h00
+  /stopauto     → Désactiver envoi automatique
+  /aide         → Afficher l'aide
+
+================================================================
+  ÉTAPE 5 — ACTIVER L'ENVOI AUTOMATIQUE À 15H
+================================================================
+
+Dans votre bot Telegram, taper simplement :
+  /auto
+
+→ Le bot vous enverra automatiquement votre rapport
+  chaque jour à 15h00 sans rien faire !
+
+Pour arrêter l'automatique :
+  /stopauto
+
+================================================================
+  ALTERNATIVE SIMPLE SANS RENDER — PYTHONANYWHERE
+================================================================
+
+1. Aller sur https://www.pythonanywhere.com
+2. Créer un compte gratuit
+3. Aller dans "Files" → uploader bot.py, requirements.txt, template_rapport.xlsx
+4. Ouvrir une console "Bash" et taper :
+     pip install python-telegram-bot[job-queue] openpyxl
+     python bot.py
+5. Pour garder actif : utiliser l'onglet "Tasks" (version payante ~5$/mois)
+   OU laisser la console ouverte sur votre téléphone
+
+================================================================
+  RÉSUMÉ — CE QUE FAIT LE BOT
+================================================================
+
+✅ /rapport      → Génère Excel du jour + vous l'envoie
+✅ /rapport_hier → Génère Excel d'hier + vous l'envoie
+✅ /auto         → Envoi automatique chaque jour à 15h00
+✅ Boutons       → Interface facile sans taper de commandes
+✅ Résumé        → Vous voyez le nombre d'interventions
+✅ Fichier Excel → Votre fiche originale avec couleurs et formules
+
+================================================================
+  BESOIN D'AIDE ?
+================================================================
+
+Si vous êtes bloqué à une étape, revenez vers Claude
+et dites : "Je suis bloqué à l'étape X du guide IDCAM"
+
+================================================================
