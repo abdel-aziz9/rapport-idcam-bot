@@ -28,7 +28,7 @@ logging.basicConfig(
 #  ⚙️  CONFIGURATION — MODIFIEZ ICI
 # ─────────────────────────────────────────────
 
-TOKEN_BOT      = "VOTRE_TOKEN_ICI"   # ← Token donné par @BotFather
+TOKEN_BOT      = "8871644850:AAGqLgYPVo8ABS0xFtAhJJDoaa3_XdiN7Sk"   # ← Token donné par @BotFather
 TEMPLATE_PATH  = os.path.join(os.path.dirname(__file__), "template_rapport.xlsx")
 DOSSIER_SORTIE = os.path.dirname(__file__)
 
